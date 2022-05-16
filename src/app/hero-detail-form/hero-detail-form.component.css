@@ -1,0 +1,21 @@
+form {
+  flex-basis: 300px;
+}
+.form-group {
+  width: auto;
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.form-group label {
+  flex-basis: 130px;
+  font-size: 18px;
+}
+.form-group input,
+.form-group select {
+  height: 20px;
+}
+.form-group select {
+  height: 25px;
+  margin-left: -17px;
+}

@@ -1,0 +1,76 @@
+<div *ngIf="hero" class="hero-detail">
+  <div class="hero-detail-heading">
+    <h2>{{ hero.name | uppercase }} Details</h2>
+  </div>
+
+  <div class="hero-detail-info">
+    <div class="hero-info">
+      <div class="hero-detail-info-show">
+        <label>id: </label>
+        <p>{{ hero.id }}</p>
+      </div>
+      <div class="hero-detail-info-show">
+        <label for="hero-name">Hero Name: </label>
+        <p>{{ hero.name }}</p>
+      </div>
+      <div class="hero-detail-info-show">
+        <label for="hero-ability">Hero Ability: </label>
+        <p *ngIf="hero.ability; else elseBlock">{{ hero.ability }}</p>
+        <ng-template #elseBlock><i>Updating...</i></ng-template>
+      </div>
+      <div class="hero-detail-info-show">
+        <label for="hero-attack">Hero Attack: </label>
+        <p *ngIf="hero.attack; else elseBlock">{{ hero.attack }}</p>
+        <ng-template #elseBlock
+          ><p><i>Updating...</i></p></ng-template
+        >
+      </div>
+      <div class="hero-detail-info-show">
+        <label for="hero-defence">Hero Defence: </label>
+        <p *ngIf="hero.defence; else elseBlock">{{ hero.defence }}</p>
+        <ng-template #elseBlock
+          ><p><i>Updating...</i></p></ng-template
+        >
+      </div>
+    </div>
+    <div class="hero-edit">
+      <div class="hero-detail-edit-show">
+        <label>id: </label>
+
+        <input id="hero-id" [value]="hero.id" placeholder="id" disabled />
+      </div>
+      <div class="hero-detail-edit-show">
+        <label for="hero-name">Hero Name: </label>
+        <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" />
+      </div>
+      <div class="hero-detail-edit-show">
+        <label for="hero-ability">Hero Ability: </label>
+        <input
+          id="hero-ability"
+          [(ngModel)]="hero.ability"
+          placeholder="ability"
+        />
+      </div>
+      <div class="hero-detail-edit-show">
+        <label for="hero-attack">Hero Attack: </label>
+        <input
+          id="hero-attack"
+          [(ngModel)]="hero.attack"
+          placeholder="Attack"
+        />
+      </div>
+      <div class="hero-detail-info-show">
+        <label for="hero-defence">Hero Defence: </label>
+        <input
+          id="hero-defence"
+          [(ngModel)]="hero.defence"
+          placeholder="Defence"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="hero-info-submit-btn">
+    <button type="button" (click)="save()">save</button>
+    <button type="button" (click)="goBack()">go back</button>
+  </div>
+</div>

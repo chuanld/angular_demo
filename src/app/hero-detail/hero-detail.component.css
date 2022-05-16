@@ -1,0 +1,70 @@
+label {
+  color: #435960;
+  font-weight: bold;
+}
+input {
+  font-size: 1em;
+  padding: 0.5rem;
+}
+button {
+  margin-top: 20px;
+  margin-right: 0.5rem;
+  background-color: teal;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}
+.hero-detail {
+  width: 800px;
+  margin: 10px auto;
+}
+.hero-detail .hero-detail-heading {
+  text-align: center;
+}
+.hero-detail-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.hero-detail-info .hero-info {
+  flex-basis: 300px;
+  width: fit-content;
+  background-color: aliceblue;
+  padding: 0 10px;
+  padding-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px 2px #ddd;
+}
+.hero-detail-info .hero-edit {
+  flex-basis: 370px;
+  width: fit-content;
+}
+.hero-detail-info .hero-detail-info-show,
+.hero-detail-info .hero-detail-edit-show {
+  width: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.hero-detail-info .hero-detail-edit-show {
+  margin-bottom: 9px;
+}
+.hero-detail-info .hero-detail-info-show label,
+.hero-detail-info .hero-detail-edit-show label {
+  flex-basis: 120px;
+}
+
+.hero-info-submit-btn {
+  text-align: center;
+}

@@ -1,0 +1,57 @@
+<div>
+  <h1>Create Hero</h1>
+  <form [formGroup]="infoHeroForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="ability">Hero Ability</label>
+      <select
+        class="form-control"
+        id="ability"
+        formControlName="ability"
+        required
+      >
+        <option *ngFor="let ability of abilities" [value]="ability">
+          {{ ability }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="attack">Hero Attack</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="attack"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="defence">Hero Defence</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="defence"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+
+    &nbsp;&nbsp;
+
+    <!-- <div>
+      <hr />
+      Name via form.controls = {{ showFormControls(heroForm) }}
+    </div> -->
+    <!-- - -->
+  </form>
+</div>
