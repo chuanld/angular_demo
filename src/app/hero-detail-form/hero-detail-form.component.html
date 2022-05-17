@@ -19,9 +19,10 @@
         id="ability"
         formControlName="ability"
         required
+        *ngIf="abilities.length > 0"
       >
-        <option *ngFor="let ability of abilities" [value]="ability">
-          {{ ability }}
+        <option *ngFor="let ability of abilities" [value]="ability.id">
+          {{ ability.skill }}
         </option>
       </select>
     </div>

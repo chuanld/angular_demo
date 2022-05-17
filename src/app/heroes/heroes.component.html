@@ -1,8 +1,9 @@
 <div class="heroes">
-  <div class="heroes-heading"><h2>My Heroes</h2></div>
+  <div class="heroes-heading">
+    <h2>My Heroes</h2>
+  </div>
   <div class="heroes-container">
     <div class="heroes-list">
-      <span>{{ onEdit }}</span>
       <ul>
         <li *ngFor="let hero of heroes">
           <a routerLink="/detail/{{ hero.id }}" (click)="onEditHero()">
@@ -23,6 +24,7 @@
     <ng-template #elseEdit>
       <app-hero-detail-form
         (isClickSubmit)="clickSubmit($event)"
+        [abilities]="abilities"
       ></app-hero-detail-form>
     </ng-template>
   </div>

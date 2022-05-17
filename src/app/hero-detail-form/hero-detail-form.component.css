@@ -19,3 +19,10 @@ form {
   height: 25px;
   margin-left: -17px;
 }
+button {
+  background-color: teal;
+  color: #fff;
+}
+button:hover {
+  background-color: #ddd;
+}

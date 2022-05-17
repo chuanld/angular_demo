@@ -3,6 +3,7 @@ import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { FormBuilder } from '@angular/forms';
 import { MessageService } from '../message.service';
+import { Ability } from '../ability';
 
 @Component({
   selector: 'app-hero-detail-form',
@@ -13,13 +14,13 @@ export class HeroDetailFormComponent implements OnInit {
   heroes: Hero[] = [];
   @Input() onEdit;
   @Output() isClickSubmit = new EventEmitter<Hero>();
+  @Input() abilities?: Array<Ability>;
   constructor(
-    private heroService: HeroService,
     private formBuilder: FormBuilder,
     private messageService: MessageService
   ) {}
 
-  abilities = [
+  Abilities = [
     'Controll Time',
     'Creator-Tech',
     'Recovery Power',
@@ -40,32 +41,19 @@ export class HeroDetailFormComponent implements OnInit {
     this.submitted = true;
     if (!this.infoHeroForm.valid) return this.log('Form invalid');
     const infHero = this.infoHeroForm.value;
-    // console.log(this.infoHeroForm.value);
-    // this.heroService.addHero(infHero).subscribe((hero) => {
-    //   this.heroes.push(hero);
-    // });
+    console.log(this.abilities);
     this.isClickSubmit.emit(infHero);
     this.infoHeroForm.reset();
   }
-  newHero() {
-    //this.
-  }
+
   showFormControls(form: any) {
     return form && form.controls.name && form.controls.name.value;
   }
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
   }
-  // add(form: any): void {
-  //   if (!form) {
-  //     return;
-  //   }
-  //   this.heroService.addHero({ form } as any).subscribe((hero) => {
-  //     this.heroes.push(hero);
-  //   });
-  // }
-  // onSubmitEdit() {
-  //   console.log(123112);
-  // }
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+    console.log(this.abilities);
+  }
 }

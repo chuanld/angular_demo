@@ -15,8 +15,18 @@
       </div>
       <div class="hero-detail-info-show">
         <label for="hero-ability">Hero Ability: </label>
-        <p *ngIf="hero.ability; else elseBlock">{{ hero.ability }}</p>
-        <ng-template #elseBlock><i>Updating...</i></ng-template>
+        <div *ngIf="hero.ability != 0 && hero.ability; else elseBlock1">
+          <div *ngFor="let ability of abilities">
+            <p *ngIf="ability.id == hero.ability">
+              {{ ability.skill }}
+            </p>
+          </div>
+        </div>
+        <ng-template #elseBlock1
+          ><div>
+            <p><i>Updating...</i></p>
+          </div></ng-template
+        >
       </div>
       <div class="hero-detail-info-show">
         <label for="hero-attack">Hero Attack: </label>
@@ -45,11 +55,17 @@
       </div>
       <div class="hero-detail-edit-show">
         <label for="hero-ability">Hero Ability: </label>
-        <input
+        <select
           id="hero-ability"
           [(ngModel)]="hero.ability"
-          placeholder="ability"
-        />
+          (change)="selectOption($event)"
+          required
+        >
+          <option value="{{ 0 }}"><i>None</i></option>
+          <option *ngFor="let ability of abilities" [value]="ability.id">
+            {{ ability.skill }}
+          </option>
+        </select>
       </div>
       <div class="hero-detail-edit-show">
         <label for="hero-attack">Hero Attack: </label>
@@ -71,6 +87,6 @@
   </div>
   <div class="hero-info-submit-btn">
     <button type="button" (click)="save()">save</button>
-    <button type="button" (click)="goBack()">go back</button>
+    <button type="button" (click)="goBack()">back</button>
   </div>
 </div>

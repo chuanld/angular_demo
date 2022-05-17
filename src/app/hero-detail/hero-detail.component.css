@@ -2,7 +2,8 @@ label {
   color: #435960;
   font-weight: bold;
 }
-input {
+input,
+select {
   font-size: 1em;
   padding: 0.5rem;
 }

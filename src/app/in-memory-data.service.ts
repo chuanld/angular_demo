@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { Ability } from './ability';
 import { Hero } from './hero';
 
 @Injectable({
@@ -11,43 +12,83 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 11,
         name: 'Dr.Strange',
-        ability: 'Controll Time',
+        ability: 1,
       },
       {
         id: 22,
         name: 'IronMan',
-        ability: 'Creator - Tech',
+        ability: 2,
       },
       {
         id: 33,
         name: 'Hulk',
-        ability: 'Recovery Power',
+        ability: 3,
       },
       {
         id: 44,
         name: 'Spider',
-        ability: 'Fast-Sensitive',
+        ability: 4,
       },
       {
         id: 55,
         name: 'Captain',
-        ability: 'Clever',
+        ability: 5,
       },
     ];
     const getLocalStored = JSON.parse(localStorage.getItem('heroes') || '[]');
     const storedHeroes = getLocalStored.length != 0 ? getLocalStored : heroes;
 
-    return { storedHeroes };
+    const abilities: any = [
+      {
+        id: 1,
+        skill: 'Controll Time',
+      },
+      {
+        id: 2,
+        skill: 'Creator - Tech',
+      },
+      {
+        id: 3,
+        skill: 'Recovery Power',
+      },
+      {
+        id: 4,
+        skill: 'Fast-Sensitive',
+      },
+      {
+        id: 5,
+        skill: 'Clever',
+      },
+      {
+        id: 6,
+        skill: 'Rocker',
+      },
+      {
+        id: 7,
+        skill: 'Control The Elements',
+      },
+      {
+        id: 8,
+        skill: 'Storm',
+      },
+    ];
+    const getLocalStoredAbilities = JSON.parse(
+      localStorage.getItem('abilities') || '[]'
+    );
+    const storedAbilities =
+      getLocalStoredAbilities.length != 0 ? getLocalStoredAbilities : abilities;
+
+    return { storedHeroes, storedAbilities };
   }
 
-  // Overrides the genId method to ensure that a hero always has an id.
-  // If the heroes array is empty,
-  // the method below returns the initial number (11).
-  // if the heroes array is not empty, the method below returns the highest
-  // hero id + 1.
   genId(heroes: Hero[]): number {
     return heroes.length > 0
       ? Math.max(...heroes.map((hero) => hero.id)) + 10
       : 11;
+  }
+  genIdAbility(abilities: Ability[]): Number {
+    return abilities.length > 0
+      ? Math.max(...abilities.map((ability) => ability.id)) + 1
+      : 1;
   }
 }
